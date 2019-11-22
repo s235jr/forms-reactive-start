@@ -1,57 +1,82 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form (ngSubmit)="onSubmit()" [formGroup]="signForm">
-        <div formGroupName="userData">
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input
-              class="form-control"
-              formControlName="username"
-              id="username"
-              type="text">
-            <span *ngIf="!signForm.get('userData.username').valid &&  signForm.get('userData.username').touched"
-                  class="help-block">
-              <span *ngIf="signForm.get('userData.username').errors['nameIsForbidden']">This name is forbidden!</span>
-              <span *ngIf="signForm.get('userData.username').errors['required']">This field is required!</span>
-            </span>
-          </div>
-          <div class="form-group">
-            <label for="email">email</label>
-            <input
-              class="form-control"
-              formControlName="email"
-              id="email"
-              type="text">
-            <span *ngIf="!signForm.get('userData.email').valid &&  signForm.get('userData.email').touched"
-                  class="help-block">Please enter a valid email!</span>
-          </div>
-        </div>
-        <div class="radio" *ngFor="let gender of genders">
-          <label>
-            <input
-              type="radio"
-              formControlName="gender"
-              [value]="gender">{{ gender }}
-          </label>
-        </div>
-        <div formArrayName="hobbies">
-          <h3>Your hobbies:</h3>
-          <button (click)="onAddHobby()"
-                  class="btn btn-default"
-                  type="button">Add Hobby
-          </button>
-          <div *ngFor="let hobbyControl of getControls(); let i = index"
-               class="form-group">
-            <input [formControlName]="i" class="form-control" type="text">
-          </div>
-        </div>
-        <span *ngIf="!signForm.valid && signForm.touched"
-              class="help-block">Please enter a valid data!</span>
-        <button class="btn btn-primary"
-                type="submit">Submit
-        </button>
+      <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <label for="projectname">Project Name</label>
+        <input class="form-control"
+               formControlName="projectName"
+               id="projectname"
+               type="text">
+        <span></span>
+        <label for="email">Email</label>
+        <input class="form-control"
+               formControlName="email"
+               id="email"
+               type="text">
+        <span></span>
+        <label for="projectstatus">Project Status</label>
+        <select class="form-control"
+                formControlName="projectStatus"
+                id="projectstatus">
+          <option value="stable">Stable</option>
+          <option value="critical">Critical</option>
+          <option value="finished">Finished</option>
+        </select>
+        <button class="btn btn-primary" type="submit">Submit</button>
       </form>
     </div>
+    <!--    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">-->
+    <!--      <form (ngSubmit)="onSubmit()" [formGroup]="signForm">-->
+    <!--        <div formGroupName="userData">-->
+    <!--          <div class="form-group">-->
+    <!--            <label for="username">Username</label>-->
+    <!--            <input-->
+    <!--              class="form-control"-->
+    <!--              formControlName="username"-->
+    <!--              id="username"-->
+    <!--              type="text">-->
+    <!--            <span *ngIf="!signForm.get('userData.username').valid &&  signForm.get('userData.username').touched"-->
+    <!--                  class="help-block">-->
+    <!--              <span *ngIf="signForm.get('userData.username').errors['nameIsForbidden']">This name is forbidden!</span>-->
+    <!--              <span *ngIf="signForm.get('userData.username').errors['required']">This field is required!</span>-->
+    <!--            </span>-->
+    <!--          </div>-->
+    <!--          <div class="form-group">-->
+    <!--            <label for="email">email</label>-->
+    <!--            <input-->
+    <!--              class="form-control"-->
+    <!--              formControlName="email"-->
+    <!--              id="email"-->
+    <!--              type="text">-->
+    <!--            <span *ngIf="!signForm.get('userData.email').valid &&  signForm.get('userData.email').touched"-->
+    <!--                  class="help-block">Please enter a valid email!</span>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--        <div class="radio" *ngFor="let gender of genders">-->
+    <!--          <label>-->
+    <!--            <input-->
+    <!--              type="radio"-->
+    <!--              formControlName="gender"-->
+    <!--              [value]="gender">{{ gender }}-->
+    <!--          </label>-->
+    <!--        </div>-->
+    <!--        <div formArrayName="hobbies">-->
+    <!--          <h3>Your hobbies:</h3>-->
+    <!--          <button (click)="onAddHobby()"-->
+    <!--                  class="btn btn-default"-->
+    <!--                  type="button">Add Hobby-->
+    <!--          </button>-->
+    <!--          <div *ngFor="let hobbyControl of getControls(); let i = index"-->
+    <!--               class="form-group">-->
+    <!--            <input [formControlName]="i" class="form-control" type="text">-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--        <span *ngIf="!signForm.valid && signForm.touched"-->
+    <!--              class="help-block">Please enter a valid data!</span>-->
+    <!--        <button class="btn btn-primary"-->
+    <!--                type="submit">Submit-->
+    <!--        </button>-->
+    <!--      </form>-->
+    <!--    </div>-->
   </div>
 </div>
